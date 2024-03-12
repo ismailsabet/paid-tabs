@@ -8,7 +8,7 @@ For the authentication:
 
 - Ideally, I would check authentication in the middleware or on the server, but since we're using localStorage, I had to do it on the client. I've added a client component wrapper around all the children in the root layout. I'm not sure if you were expecting another implementation.
 - I've purposely made the login submission slow to show the button loading feature.
-- Usually I prefer using uncontrolled inputs, that's why I'm using useFormState from react canary. I can also implement it using controlled inputs with state if you would like that.
+- Usually I prefer using uncontrolled inputs, but this would require useFormState from react-canary, and I think the assignment is asking for simple controlled inputs.
 
 For the posts:
 

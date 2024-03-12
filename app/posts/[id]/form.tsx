@@ -5,13 +5,17 @@ import { useState } from "react";
 export default function CreateCommentForm() {
   const { id } = useParams();
   const [comment, setComment] = useState("");
+  const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    setPending(true);
 
     if (!comment.trim()) {
       setError("Please provide a valid comment.");
+      setPending(false);
       return;
     }
 
@@ -27,8 +31,7 @@ export default function CreateCommentForm() {
     const res = await fetch(BASE_URL + "/api/comments", {
       method: "POST",
       body: JSON.stringify({
-        // postId: Number(id),
-        name: user.username,
+        postId: Number(id),
         email: user.username,
         body: "Hello world",
       }),
@@ -39,15 +42,17 @@ export default function CreateCommentForm() {
 
     if (!res.ok) {
       const text = await res.text();
-      console.log(text);
-
-      setError("Fetch failed!");
+      setError(text);
+      setPending(false);
       return;
     }
 
     const newComment = await res.json();
 
+    console.log(newComment);
+
     setError("");
+    setPending(false);
   };
 
   return (
@@ -61,7 +66,10 @@ export default function CreateCommentForm() {
         />
         {error && <div className="error">{error}</div>}
       </div>
-      <button type="submit">Submit</button>
+      <button type="submit" className="btn dark sm text-sm">
+        <span>Submit</span>
+        {pending && <span className="spinner" />}
+      </button>
     </form>
   );
 }

@@ -30,8 +30,13 @@ export async function generateStaticParams() {
 }
 
 export default async function Post({ params }: PropTypes) {
-  const post = (await getPost(params.id)) as Post;
-  const comments = (await getComments(params.id)) as Comment[];
+  const postData = getPost(params.id);
+  const commentsData = getComments(params.id);
+
+  const [post, comments]: [Post, Comment[]] = await Promise.all([
+    postData,
+    commentsData,
+  ]);
 
   return (
     <>
@@ -44,7 +49,12 @@ export default async function Post({ params }: PropTypes) {
       <div className="mb-6 text-secondary text-sm">3 days ago</div>
       <p className="mb-6">{post.body}</p>
       <div className="post-img mb-6">
-        <Image src={postImg} alt="Post image" fill />
+        <Image
+          src={postImg}
+          alt="Post default image"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 30vw"
+        />
       </div>
       <Comments comments={comments} />
     </>

@@ -13,6 +13,7 @@ export default function PostList({ posts }: PropTypes) {
   const [offset, setOffset] = useState(25);
   const [query, setQuery] = useState("");
 
+  // Filtering the posts by the user's search query
   const filteredPosts = query
     ? posts.filter((p) => p.title.includes(query))
     : posts;

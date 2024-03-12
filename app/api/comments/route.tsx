@@ -20,7 +20,5 @@ export async function POST(request: NextRequest) {
 
   const comment = await res.json();
 
-  console.log(comment);
-
   return Response.json(comment);
 }

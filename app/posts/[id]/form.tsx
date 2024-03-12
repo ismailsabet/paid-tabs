@@ -1,8 +1,13 @@
 import { BASE_URL } from "@/lib/constants";
+import type { Comment } from "@/lib/types";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 
-export default function CreateCommentForm() {
+interface PropTypes {
+  setComments: Dispatch<SetStateAction<Comment[]>>;
+}
+
+export default function CreateCommentForm({ setComments }: PropTypes) {
   const { id } = useParams();
   const [comment, setComment] = useState("");
   const [pending, setPending] = useState(false);
@@ -32,8 +37,8 @@ export default function CreateCommentForm() {
       method: "POST",
       body: JSON.stringify({
         postId: Number(id),
-        email: user.username,
-        body: "Hello world",
+        name: user.username,
+        body: comment,
       }),
       headers: {
         "Content-type": "application/json",
@@ -49,7 +54,7 @@ export default function CreateCommentForm() {
 
     const newComment = await res.json();
 
-    console.log(newComment);
+    setComments((prev) => [newComment, ...prev]);
 
     setError("");
     setPending(false);

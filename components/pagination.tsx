@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef } from "react";
 
 interface PropTypes {
-  setOffset: (offset: number | ((prev: number) => number)) => void;
+  setOffset: Dispatch<SetStateAction<number>>;
 }
 
 export default function Pagination({ setOffset }: PropTypes) {

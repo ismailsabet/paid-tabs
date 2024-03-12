@@ -1,10 +1,10 @@
-// Usually I would obviously take params for revalidation time and the tags, but the mock API will probably not get updated.
+// Usually I would take params for revalidation and tags, but the mock API will probably not get updated.
 
 const fetcher = async (path: string) => {
   const res = await fetch(`https://jsonplaceholder.typicode.com${path}`);
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch data.");
   }
 
   return res.json();

@@ -4,8 +4,8 @@ import { Post } from "@/lib/types";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All posts",
-  description: "List of all posts",
+  title: "Latest posts",
+  description: "List of all the latest posts",
 };
 
 export default async function Posts() {

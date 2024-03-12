@@ -20,7 +20,7 @@ export default function Login() {
     // Just to show the button loading feature
     await new Promise((resolve) => setTimeout(resolve, 500));
 
-    const nameError = !username.trim() ? "Invalid username or email." : "";
+    const nameError = !username.trim() ? "Invalid username." : "";
     const passError = !password.trim() ? "Invalid password." : "";
 
     setUserameError(nameError);
@@ -45,12 +45,12 @@ export default function Login() {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="username" className="input-label">
-              Username or Email
+              Username
             </label>
             <input
               type="text"
-              name="username"
               id="username"
+              name="username"
               className="input w-full"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -65,8 +65,8 @@ export default function Login() {
             <div className="relative">
               <input
                 type={visible ? "text" : "password"}
-                name="password"
                 id="password"
+                name="password"
                 className="input w-full"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

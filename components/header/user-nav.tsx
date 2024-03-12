@@ -16,17 +16,15 @@ export default function UserNav() {
   };
 
   return (
-    <div className="header-content h-full">
-      <nav className="user-nav">
-        <span className="font-bold text-sm">Welcome {user.username}</span>
-        <button
-          type="button"
-          className="btn primary sm text-sm"
-          onClick={handleClick}
-        >
-          Sign out
-        </button>
-      </nav>
-    </div>
+    <nav className="header-content">
+      <span className="font-bold text-sm">Welcome {user.username}</span>
+      <button
+        type="button"
+        className="btn primary sm text-sm"
+        onClick={handleClick}
+      >
+        Sign out
+      </button>
+    </nav>
   );
 }

@@ -2,17 +2,20 @@
 
 import type { Comment } from "@/lib/types";
 import CreateCommentForm from "./form";
+import { useState } from "react";
 
 interface PropTypes {
   comments: Comment[];
 }
 
 export default function Comments({ comments }: PropTypes) {
-  const items = comments.map((item) => (
-    <li key={item.id} className="mb-6">
+  const [allComments, setComments] = useState(comments);
+
+  const items = allComments.map((item, index) => (
+    <li key={index} className="mb-6">
       <div className="mb-4 text-sm">
-        <b className="lowercase mr-2">{item.email}</b>
-        <span className="text-secondary">Feb 16, 2024</span>
+        <b className="capitalize mr-2">{item.name}</b>
+        <span className="text-secondary">Mar 12, 2024</span>
       </div>
       <p>{item.body}</p>
     </li>
@@ -21,7 +24,7 @@ export default function Comments({ comments }: PropTypes) {
   return (
     <>
       <h2 className="heading">Comments</h2>
-      <CreateCommentForm />
+      <CreateCommentForm setComments={setComments} />
       <ul>{items}</ul>
     </>
   );

@@ -7,7 +7,12 @@ export default function PostCard({ post }: { post: Post }) {
   return (
     <Link href={"/posts/" + post.id} key={post.id} className="post-card">
       <div className="post-card-img">
-        <Image src={postImg} alt="Post image" fill />
+        <Image
+          src={postImg}
+          alt="Post default image"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 20vw"
+        />
       </div>
       <div className="post-card-body">
         <h3 className="post-card-title line-clamp-2">{post.title}</h3>

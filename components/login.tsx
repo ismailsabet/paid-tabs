@@ -26,8 +26,6 @@ export default function Login() {
     setUserameError(nameError);
     setPasswordError(passError);
 
-    setPending(false);
-
     if (nameError || passError) {
       setPending(false);
       return;

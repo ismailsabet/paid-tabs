@@ -16,7 +16,6 @@ For the posts:
 - Since I can't do server-side filtering with this mock API, I had to do the filtering and pagination on the client.
 - I've opted to use SSG for showing single posts, and normal SSR for the post list page.
 - For the comments, I sent a fetch request to the api folder, which then sends another fetch request to the mock API. This is redundant of course, but the task said to use the route handler.
-- Also, the comments are using client-side rendering, this is just to showcase all the different rendering paradigms.
 
 Additional:
 

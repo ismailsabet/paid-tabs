@@ -1,0 +1,60 @@
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.post-card {
+  border: 1px solid $border;
+  background: white;
+  display: block;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: $box-shadow-sm;
+  transition: box-shadow $transition;
+
+  &:hover .post-card-title {
+    color: #4f46e5;
+  }
+
+  &:hover {
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+.post-card-title {
+  font-weight: 500;
+  text-transform: capitalize;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.post-card-img {
+  position: relative;
+  height: 14rem;
+  width: 100%;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.post-card-body {
+  padding: 1rem;
+}
+
+.post-img {
+  height: 22rem;
+  position: relative;
+
+  img {
+    border-radius: 0.5rem;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: $breakpoint-1) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+}

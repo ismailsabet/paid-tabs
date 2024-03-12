@@ -1,0 +1,66 @@
+.btn {
+  display: inline-flex;
+  border-radius: 2rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  gap: 0.5rem;
+  transition: border-color $transition;
+
+  &.primary {
+    background: $btn-red;
+    color: white;
+
+    &:hover {
+      background: $btn-red-hover;
+    }
+  }
+
+  &.secondary {
+    background: white;
+    border: 1px solid $border;
+
+    &:hover {
+      border-color: $btn-dark-hover;
+    }
+  }
+
+  &.dark {
+    background: $btn-dark;
+    color: white;
+
+    &:hover {
+      background: $btn-dark-hover;
+    }
+  }
+
+  &.sm {
+    height: 2.25rem;
+    padding: 0 1rem;
+  }
+
+  &.lg {
+    height: 2.5rem;
+    padding: 0 0.75rem;
+  }
+
+  &.sqr-sm {
+    height: 2.25rem;
+    width: 2.25rem;
+  }
+}
+
+.spinner {
+  border-radius: 50%;
+  border: 2px solid white;
+  width: 12px;
+  height: 12px;
+  border-right-color: transparent;
+  animation: spinner 0.75s ease infinite;
+}
+
+@keyframes spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

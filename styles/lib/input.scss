@@ -1,0 +1,43 @@
+.input {
+  min-width: 240px;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  padding: 0 0.75rem;
+  border: 1px solid $border;
+  background: white;
+  outline: none;
+  transition: border-color $transition;
+
+  &:hover {
+    border-color: $btn-dark-hover;
+  }
+
+  &:focus {
+    border-color: $input-focus;
+    box-shadow: 0 0 0 1px $input-focus inset;
+  }
+}
+
+.input-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+  padding-bottom: 0.25rem;
+}
+
+.input-icon {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  top: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+}
+
+.textarea {
+  padding: 0.75rem;
+  height: 80px;
+}
